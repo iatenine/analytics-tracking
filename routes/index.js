@@ -4,12 +4,12 @@ const Impression = require("../models/Impression");
 router.get("/", async (req, res) => {
   const { source_url, target_url, isClick } = req.query;
   try {
-    const newEntry = await Impression.create({
+    await Impression.create({
       target_url,
       source_url,
       isClick,
     });
-    res.json(newEntry);
+    res.redirect(target_url);
   } catch (err) {
     res.status(400).json(err);
   }
