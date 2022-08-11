@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Impression = require("../models/Impression");
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { source_url, target_url, isClick } = req.query;
   try {
     await Impression.create({
@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
       source_url,
       isClick,
     });
-    res.redirect(target_url);
   } catch (err) {
     res.status(400).json(err);
   }
