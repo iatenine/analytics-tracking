@@ -24,7 +24,6 @@ Impression.init(
   },
   {
     sequelize,
-    timestamps: false,
   }
 );
 
